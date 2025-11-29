@@ -1,13 +1,13 @@
 ## FlexCompanion – AI Physiotherapy & Mobility Coach
 
 FlexCompanion is an AI‑powered physiotherapy and mobility coach that runs entirely in the browser.  
-Using your laptop camera, microphone, and Google Gemini, it guides you through stretching and mobility flows with real‑time feedback on form.
+Using your laptop camera, microphone, it guides you through stretching and mobility flows with real‑time feedback on form.
 
 https://github.com/user-attachments/assets/dc609655-3b54-4640-918e-ad5d9fb813ba
 
 ### Key Features
 
-- **AI Live Coach** – Two‑way audio and camera stream to a Gemini model that gives real‑time verbal guidance and encouragement.
+- **AI Live Coach** – Two‑way audio and camera stream to a AI model that gives real‑time verbal guidance and encouragement.
 - **Form Feedback Overlay** – Session view with timer, current move card, and success “Correct!” celebration when the AI approves your form.
 - **Beautiful Dashboard** – Morning “Daily Pick” routine, active challenges, and quick links into session, routines, progress, and settings.
 - **Routines Library** – Prebuilt mobility flows (spine, lower body, recovery, etc.) designed for short daily sessions.
@@ -26,9 +26,7 @@ https://github.com/user-attachments/assets/dc609655-3b54-4640-918e-ad5d9fb813ba
 
 Key implementation pieces:
 
-- `components/LiveCoach.tsx` – Live session surface, timers, overlays, and Gemini WebSocket wiring.
 - `lib/audio-stream.ts` – Microphone capture and streaming of PCM audio chunks to the model.
-- `lib/gemini.ts` – Client helpers for talking to Gemini.
 - `app/dashboard` – Main logged‑in dashboard experience.
 - `app/session` – Full‑screen live session using the LiveCoach.
 
@@ -36,11 +34,6 @@ Key implementation pieces:
 
 ## Getting Started
 
-### Prerequisites
-
-- Node.js **20+**
-- npm (or another package manager like pnpm/yarn/bun)
-- A Google Gemini API key with access to the realtime WebSocket endpoint
 
 ### 1. Clone and install
 
@@ -58,7 +51,6 @@ Create a `.env.local` file in the project root:
 NEXT_PUBLIC_GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-> Without this key, the app UI will still load, but the live coach will not be able to connect to Gemini and “Start Workout” sessions will not fully work.
 
 ### 3. Run the dev server
 
@@ -104,7 +96,7 @@ Only the most important pieces are listed here:
 ## How the Live Coach Works (High Level)
 
 1. When you click **Start Workout**, the browser:
-   - Opens a WebSocket to the Gemini realtime endpoint.
+   - Opens a WebSocket to the realtime endpoint.
    - Starts capturing microphone audio and camera frames.
 2. Audio is converted to PCM and streamed as base64 chunks over the WebSocket.
 3. The model responds with:
