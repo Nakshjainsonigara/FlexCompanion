@@ -3,6 +3,8 @@
 FlexCompanion is an AI‑powered physiotherapy and mobility coach that runs entirely in the browser.  
 Using your laptop camera, microphone, and Google Gemini, it guides you through stretching and mobility flows with real‑time feedback on form.
 
+https://github.com/user-attachments/assets/dc609655-3b54-4640-918e-ad5d9fb813ba
+
 ### Key Features
 
 - **AI Live Coach** – Two‑way audio and camera stream to a Gemini model that gives real‑time verbal guidance and encouragement.
